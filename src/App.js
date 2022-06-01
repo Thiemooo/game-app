@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
+import Menu from './views/Menu';
+import Header from './components/Header';
+import FlappyBird from './games/FlappyBird';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route path='/' element={<><Header /> <Menu /></>}/>
+          <Route path='/flappy-bird' element={<><Header /> <FlappyBird /></>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

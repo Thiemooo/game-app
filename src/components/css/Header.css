@@ -1,0 +1,29 @@
+.header {
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1vw;
+  align-items: center;
+  background-color: #001d3d;
+}
+
+.header * {
+  color: #ffd60a;
+}
+
+.header-section {
+  display: flex;
+  justify-content: center;
+  width: 33.333333%;
+}
+
+.header-user h2 {
+  margin-right: 15px;
+}
+
+.header .mui {
+  transform: scale(1.4);
+  border: 1px solid #ffd60a;
+  border-radius: 5px;
+  padding: 4px 4px 1px;
+}
