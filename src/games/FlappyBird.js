@@ -56,9 +56,27 @@ function FlappyBird() {
     },
     draw() {
       ctxRef.current.beginPath();
+      ctxRef.current.arc(this.x + 13, this.y - 7, this.radius/2, 0, 2 * Math.PI);
+      ctxRef.current.fillStyle = '#ffffff';
+      ctxRef.current.fill();
+      ctxRef.current.beginPath();
       ctxRef.current.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
       ctxRef.current.fillStyle = '#ffd60a';
       ctxRef.current.fill();
+      ctxRef.current.beginPath();
+      ctxRef.current.arc(this.x + 5, this.y - 6, this.radius/2, 0, 2 * Math.PI);
+      ctxRef.current.fillStyle = '#ffffff';
+      ctxRef.current.fill();
+      ctxRef.current.beginPath();
+      ctxRef.current.arc(this.x + 9, this.y - 6, this.radius/5, 0, 2 * Math.PI);
+      ctxRef.current.fillStyle = '#000000';
+      ctxRef.current.fill();
+      ctxRef.current.beginPath();
+      ctxRef.current.arc(this.x - 15, this.y + 10, this.radius/2, 0, 1.4 * Math.PI);
+      ctxRef.current.fillStyle = '#ffb300';
+      ctxRef.current.fill();
+      ctxRef.current.fillStyle = '#dc143c';
+      ctxRef.current.fillRect(this.x, this.y+10, 15, 5);
     }
   };
 
@@ -111,7 +129,8 @@ function FlappyBird() {
         speed: -3,
         draw() {
           const heights = this.getPipeHeights();
-          
+
+          ctxRef.current.fillStyle = '#ffd60a';
           ctxRef.current.fillRect(this.x, 0, this.width, heights[0]);
           ctxRef.current.fillRect(this.x, canvas.current.clientHeight - heights[1], this.width, heights[1]);
         },
