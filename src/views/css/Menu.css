@@ -10,7 +10,9 @@
 
 .menu-gamelist {
   max-height: 100%;
-  width: 72%;
+  min-width: 72%;
+  max-width: 82%;
+  width: min-content;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -23,7 +23,6 @@ function FlappyBird() {
   }
 
   const onKeyDown = (e) => {
-    console.log("-ad-");
     if (!gameStartedRef.current) return;
 
     bird.flap();
