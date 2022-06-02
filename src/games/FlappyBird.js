@@ -23,6 +23,7 @@ function FlappyBird() {
   }
 
   const onKeyDown = (e) => {
+    console.log("-ad-");
     if (!gameStartedRef.current) return;
 
     bird.flap();
@@ -157,7 +158,7 @@ function FlappyBird() {
 
   const startGame = (e) => {
     if (gameStartedRef.current) return;
-      gameStartedRef.current = false;
+      gameStartedRef.current = true;
       requestRef.current = requestAnimationFrame(loop);
       document.addEventListener('keydown', onKeyDown);
       bird.flap();
