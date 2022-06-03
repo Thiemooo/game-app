@@ -176,6 +176,7 @@ const FlappyBird = () => {
         pipes[i].x = canvas.current.clientWidth + i * (canvas.current.clientWidth + 50) / pipeCount;
       }
 
+      setCount(0);
       startButtonRef.current.blur();
       gameStartedRef.current = true;
       setFinished(false);
