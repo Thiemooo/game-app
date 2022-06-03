@@ -3,7 +3,7 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { Link } from 'react-router-dom';
 import './css/Preview.css';
 
-function Preview({ gameInfo }) {
+const Preview = ({ gameInfo }) => {
   return (
     <div className='preview'>
       <div className='preview-left'>

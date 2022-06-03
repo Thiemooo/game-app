@@ -2,9 +2,9 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
 import Menu from './views/Menu';
 import Header from './components/Header';
-import FlappyBird from './games/FlappyBird';
+import FlappyBird from './games/FlappyBird/FlappyBird';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Router>

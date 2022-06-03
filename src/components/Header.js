@@ -1,10 +1,10 @@
 import React from 'react';
-import './css/Header.css';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
+import './css/Header.css';
 
-function Header() {
+const Header = () => {
   return (
     <div className='header'>
       <div className='header-section'>

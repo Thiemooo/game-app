@@ -25,4 +25,12 @@
   outline: none;
   cursor: pointer;
   color: #ffd60a;
+  border: none;
+}
+
+.flappy-bird .disabled {
+  color: #ffd60a9a;
+  box-shadow: none;
+  background-color: #003566a8;
+  cursor: default;
 }

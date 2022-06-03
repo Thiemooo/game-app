@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './css/FlappyBird.css'
+import './FlappyBird.css'
 
-function FlappyBird() {
+const FlappyBird = () => {
 
   const pipeCount = 3;
 
@@ -10,11 +10,13 @@ function FlappyBird() {
   const requestRef = useRef();
   const previousTimeRef = useRef();
   const gameStartedRef = useRef();
+  const startButtonRef = useRef();
   
   const [count, setCount] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
   const [pipes, setPipes] = useState([]);
+  const [finished, setFinished] = useState(false);
 
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -47,10 +49,6 @@ function FlappyBird() {
       this.speed = this.flapForce;
     },
     update() {
-      if (this.y >= screenHeight || this.y <= 0) {
-        stopGame();
-        return;
-      }
       this.speed += this.gravity;
       this.y += this.speed;
     },
@@ -70,10 +68,6 @@ function FlappyBird() {
       ctxRef.current.beginPath();
       ctxRef.current.arc(this.x + 9, this.y - 6, this.radius/5, 0, 2 * Math.PI);
       ctxRef.current.fillStyle = '#000000';
-      ctxRef.current.fill();
-      ctxRef.current.beginPath();
-      ctxRef.current.arc(this.x - 15, this.y + 10, this.radius/2, 0, 1.4 * Math.PI);
-      ctxRef.current.fillStyle = '#ffb300';
       ctxRef.current.fill();
       ctxRef.current.fillStyle = '#dc143c';
       ctxRef.current.fillRect(this.x, this.y+10, 15, 5);
@@ -103,7 +97,8 @@ function FlappyBird() {
         const lowerPipe = upperLowerPipe[1];
 
         if (bird.checkOverlap(upperPipe.x1, upperPipe.y1, upperPipe.x2, upperPipe.y2) ||
-          bird.checkOverlap(lowerPipe.x1, lowerPipe.y1, lowerPipe.x2, lowerPipe.y2)) {
+          bird.checkOverlap(lowerPipe.x1, lowerPipe.y1, lowerPipe.x2, lowerPipe.y2) ||
+          bird.y >= screenHeight || bird.y <= 0) {
           stopGame();
           return;
         }
@@ -176,7 +171,14 @@ function FlappyBird() {
 
   const startGame = (e) => {
     if (gameStartedRef.current) return;
+
+      for (let i = 0; i < pipeCount; i++) {
+        pipes[i].x = canvas.current.clientWidth + i * (canvas.current.clientWidth + 50) / pipeCount;
+      }
+
+      startButtonRef.current.blur();
       gameStartedRef.current = true;
+      setFinished(false);
       requestRef.current = requestAnimationFrame(loop);
       document.addEventListener('keydown', onKeyDown);
       bird.flap();
@@ -187,6 +189,10 @@ function FlappyBird() {
     requestRef.current = undefined;
     document.removeEventListener('keydown', onKeyDown);
     gameStartedRef.current = false;
+    setFinished(true);
+    for (let i = 0; i < pipeCount; i++) {
+      pipes[i].draw();
+    }
   };
 
   return (
@@ -194,7 +200,8 @@ function FlappyBird() {
       <h1>Flappy Bird!</h1>
       <h1>{Math.round(count)}</h1>
       <canvas ref={canvas} id="myCanvas" width="480" height="640"></canvas>
-      <button onClick={startGame}>Start</button>
+      <button ref={startButtonRef} onClick={startGame} disabled={gameStartedRef.current}
+              className={`${gameStartedRef.current ? 'disabled' : ''}`}>{finished ? 'Restart' : 'Start'}</button>
     </div>
   );
 }

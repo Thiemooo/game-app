@@ -2,7 +2,7 @@ import React from 'react';
 import Preview from '../components/Preview';
 import './css/Menu.css';
 
-function Menu() {
+const Menu = () => {
   return (
     <div className='menu'>
       {/* <h1>Moin, ich bin des Menu</h1> */}
