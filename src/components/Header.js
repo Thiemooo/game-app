@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div className='header-section header-user'>
         <h2>Thiemooo</h2>  
-        <PersonIcon className='mui' />
+        <a href='https://github.com/Thiemooo/game-app' target='_blank' rel='noreferrer' className='mui'><PersonIcon /></a>
       </div>
     </div>
   );
