@@ -53,24 +53,40 @@ const FlappyBird = () => {
       this.y += this.speed;
     },
     draw() {
+      // ctxRef.current.beginPath();
+      // ctxRef.current.arc(this.x + 13, this.y - 7, this.radius/2, 0, 2 * Math.PI);
+      // ctxRef.current.fillStyle = '#ffffff';
+      // ctxRef.current.fill();
+      // ctxRef.current.beginPath();
+      // ctxRef.current.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      // ctxRef.current.fillStyle = '#ffd60a';
+      // ctxRef.current.fill();
+      // ctxRef.current.beginPath();
+      // ctxRef.current.arc(this.x + 5, this.y - 6, this.radius/2, 0, 2 * Math.PI);
+      // ctxRef.current.fillStyle = '#ffffff';
+      // ctxRef.current.fill();
+      // ctxRef.current.beginPath();
+      // ctxRef.current.arc(this.x + 9, this.y - 6, this.radius/5, 0, 2 * Math.PI);
+      // ctxRef.current.fillStyle = '#000000';
+      // ctxRef.current.fill();
+      // ctxRef.current.fillStyle = '#dc143c';
+      // ctxRef.current.fillRect(this.x, this.y+10, 15, 5);
+
       ctxRef.current.beginPath();
-      ctxRef.current.arc(this.x + 13, this.y - 7, this.radius/2, 0, 2 * Math.PI);
-      ctxRef.current.fillStyle = '#ffffff';
-      ctxRef.current.fill();
-      ctxRef.current.beginPath();
-      ctxRef.current.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctxRef.current.arc(this.x-10, this.y+10, 10, 0, 2 * Math.PI);
       ctxRef.current.fillStyle = '#ffd60a';
       ctxRef.current.fill();
       ctxRef.current.beginPath();
-      ctxRef.current.arc(this.x + 5, this.y - 6, this.radius/2, 0, 2 * Math.PI);
-      ctxRef.current.fillStyle = '#ffffff';
+      ctxRef.current.arc(this.x+10, this.y+10, 10, 0, 2 * Math.PI);
       ctxRef.current.fill();
       ctxRef.current.beginPath();
-      ctxRef.current.arc(this.x + 9, this.y - 6, this.radius/5, 0, 2 * Math.PI);
-      ctxRef.current.fillStyle = '#000000';
+      ctxRef.current.arc(this.x, this.y-50, 10, 0, 2 * Math.PI);
       ctxRef.current.fill();
-      ctxRef.current.fillStyle = '#dc143c';
-      ctxRef.current.fillRect(this.x, this.y+10, 15, 5);
+      ctxRef.current.fillRect(this.x-10, this.y+10, 20, -60);
+      ctxRef.current.beginPath();
+      ctxRef.current.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctxRef.current.strokeStyle = '#ffd60a66';
+      ctxRef.current.stroke();
     }
   };
 
