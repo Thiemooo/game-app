@@ -216,7 +216,7 @@ const FlappyBird = () => {
     <div className='flappy-bird'>
       <h1>Flappy Bird!</h1>
       <h1>{Math.round(count)}</h1>
-      <canvas ref={canvas} id="myCanvas" width="480" height="640"></canvas>
+      <canvas ref={canvas} id="myCanvas" width="600" height="640"></canvas>
       <button ref={startButtonRef} onClick={startGame} disabled={gameStartedRef.current}
               className={`${gameStartedRef.current ? 'disabled' : ''}`}>{finished ? 'Restart' : 'Start'}</button>
     </div>
